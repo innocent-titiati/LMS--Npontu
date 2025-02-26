@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="392px" height="222px" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask fill="white" id="Clip543">
+      <path d="M 1330 461  L 1330 259  C 1330 247.9  1338.9 239  1350 239  L 1702 239  C 1713.1 239  1722 247.9  1722 259  L 1722 461  " fill-rule="evenodd" />
+    </mask>
+  </defs>
+  <g transform="matrix(1 0 0 1 -1330 -239 )">
+    <path d="M 1330 239  L 1722 239  L 1722 461  L 1330 461  L 1330 239  " fill-rule="nonzero" fill="rgba(204, 204, 204, 1)" stroke="none" class="fill" mask="url(#Clip543)" />
+    <path d="M 1346 255  L 1706 255  L 1706 445  L 1346 445  L 1346 255  " fill-rule="nonzero" fill="rgba(255, 255, 255, 1)" stroke="none" class="fill" mask="url(#Clip543)" />
+    <path d="M 1550.4899999999998 305.6  C 1541.166 305.6  1533.84 298.27400000000006  1533.84 288.95000000000005  C 1533.84 279.62600000000003  1541.166 272.3  1550.4899999999998 272.3  C 1559.8139999999999 272.3  1567.1399999999999 279.62600000000003  1567.1399999999999 288.95000000000005  C 1567.1399999999999 298.27400000000006  1559.8139999999999 305.6  1550.4899999999998 305.6  " fill-rule="nonzero" fill="rgba(204, 204, 204, 1)" stroke="none" class="fill" mask="url(#Clip543)" />
+    <path d="M 1352 440  L 1352 341.55  L 1439.25 296.79999999999995  L 1561.4 379.1765306122449  L 1631.2 323.65  L 1701 379.1765306122449  L 1701 440  L 1352 440  " fill-rule="nonzero" fill="rgba(22, 155, 213, 1)" stroke="none" class="fill" mask="url(#Clip543)" />
+  </g>
+</svg>
