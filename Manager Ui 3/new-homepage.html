@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Learning Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-cyan-100">
+    <header class="rounded bg-white shadow-md py-4 w-[85%] translate-x-[5rem]">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <img alt="Logo of NPONTU Learning Hub" class="h-12" src="./images/sign_in___sign_up/logo_u45.svg" />
+            <div class="flex items-center justify-between space-x-4">
+                <span>
+                    <select class="translate-x-[-15rem] text-gray-600 w-[220px]">
+                        <option value="" disabled selected>Brief overview of courses</option>
+                        <option value="business-software-management">Business and Software Management</option>
+                        <option value="software-engineering">Software Engineering</option>
+                        <option value="programming-development">Programming and Development</option>
+                        <option value="data-science-analytics">Data Science and Analytics</option>
+                        <option value="cybersecurity">Cybersecurity</option>
+                        <option value="database-management">Database Management</option>
+                        <option value="devops">DevOps</option>
+                        <option value="ai-ml">Artificial Intelligence and Machine Learning</option>
+                        <option value="cloud-computing">Cloud Computing</option>
+                        <option value="software-development">Software Development</option>
+                    </select>
+                </span>
+                <span class="relative translate-x-[-5rem]">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input class="border rounded px-4 py-1 w-[20rem] pl-10" placeholder="Search" type="text" />
+                </span>
+                <a class="text-gray-600 text-center px-4 py-2 rounded-full hover:bg-gray-100 transition duration-200"
+                    href="./sign-in-page.html" target="_blank">Log in</a>
+                <a class="bg-cyan-400 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-500 transition duration-200"
+                    href="./sign-in-page.html" target="_blank">Sign up</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="text-center py-16">
+        <h1 class="text-3xl font-semibold text-gray-800 mb-[3rem]">Empower Your Workforce with Expert Training.</h1>
+        <p class="text-gray-600 mt-4 mb-[5rem]">Enroll in structured courses, track progress, and earn
+            certifications—all in one place.</p>
+        <a href="./sign-in-page.html" target="_blank"
+            class="bg-cyan-400 text-white pl-[90px] mb-[8rem] py-3 rounded shadow-md shadow-[0px_4px_10px_rgba(0,0,0,0.2)] mt-8 flex items-center mx-auto w-[21rem] hover:bg-blue-500 transition duration-200">
+            Start Learning Now
+            <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <div class="mt-16">
+            <iframe class="bg-cyan-700 h-64 w-3/4 mx-auto rounded-lg" width="100%" height="100%"
+                src="https://www.youtube.com/embed/RGOj5yH7evk" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="flex flex-col items-center justify-center mt-20">
+            <h2 class="text-3xl font-light">Why choose Us?</h2>
+
+            <div class="w-[60%] text-gray-700">
+                <div class="flex items-center justify-between my-[10rem]">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-3xl font-bold">Job-Specific Learning Paths:</h3>
+                        <p class="text-3xl w-[450px]">Courses auto-mapped to roles</p>
+                    </div>
+                    <img alt="Illustration of a person standing at a crossroads" class="w-[350px] h-[350px] ml-4"
+                        src="./images/homepage/u2863.svg" />
+                </div>
+
+                <div class="flex items-center justify-between my-[10rem]">
+                    <img alt="Illustration of a person sitting on a large computer screen"
+                        class="w-[350px] h-[350px] mr-4" src="./images/homepage/u2864.svg" />
+                    <div class="text-center md:text-left">
+                        <h2 class="text-3xl font-bold">Quizzes & Auto-Grading:</h2>
+                        <p class="text-3xl">Immediate feedback</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between my-[10rem]">
+                    <div class="text-center md:text-left">
+                        <h2 class="text-3xl font-bold">Certifications:</h2>
+                        <p class="text-3xl w-[200px]">Earn company-recognized credentials</p>
+                    </div>
+                    <img alt="Illustration of a person holding a certificate" class="w-[350px] h-[350px] ml-4"
+                        src="./images/homepage/u2865.svg" />
+                </div>
+
+                <div class="flex items-center justify-between my-[10rem]">
+                    <img alt="Illustration of a person pointing at a dashboard" class="w-[350px] h-[350px] mr-4"
+                        src="./images/homepage/u2866.svg" />
+                    <div class="text-center md:text-left">
+                        <h2 class="text-3xl w-[300px]">Manager Dashboards, HR & team analytics</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto py-12">
+            <h1 class="text-4xl font-bold text-center mb-8">Testimonials</h1>
+            <div class="relative flex items-center justify-center">
+                <!-- <button class="absolute left-0 text-2xl" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button> -->
+                <div class="flex space-x-8 overflow-x-auto overflow-y-hidden w-[80%] mx-auto" id="testimonialSlider">
+                    <div class="bg-white p-4 rounded-lg shadow-lg w-[350px] flex-shrink-0">
+                        <img alt="A digital illustration of a futuristic interface on a screen"
+                            class="w-full h-48 object-cover rounded-lg mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/PDxPrYc8MiF8I43FlTggiTZ_f7aqV0w6CvRRoUAH6r8.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-semibold mb-2">Item 1</h2>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                            euismod bibendum laoreet. Proin.</p>
+                        <button class="px-4 py-2 border border-gray-400 rounded">BUTTON</button>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-lg w-[350px] flex-shrink-0">
+                        <img alt="Placeholder image with a mountain icon"
+                            class="w-full h-48 object-cover rounded-lg mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/ObEXJ1pDtaIDqmQfDOSBl2GHffuHOdv1HGLnQI31YeE.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-semibold mb-2">Item 2</h2>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                            euismod bibendum laoreet. Proin.</p>
+                        <button class="px-4 py-2 border border-gray-400 rounded">BUTTON</button>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-lg w-[350px] flex-shrink-0">
+                        <img alt="A digital illustration of a futuristic interface on a screen"
+                            class="w-full h-48 object-cover rounded-lg mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/PDxPrYc8MiF8I43FlTggiTZ_f7aqV0w6CvRRoUAH6r8.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-semibold mb-2">Item 3</h2>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                            euismod bibendum laoreet. Proin.</p>
+                        <button class="px-4 py-2 border border-gray-400 rounded">BUTTON</button>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-lg w-[350px] flex-shrink-0">
+                        <img alt="Placeholder image with a mountain icon"
+                            class="w-full h-48 object-cover rounded-lg mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/ObEXJ1pDtaIDqmQfDOSBl2GHffuHOdv1HGLnQI31YeE.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-semibold mb-2">Item 4</h2>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                            euismod bibendum laoreet. Proin.</p>
+                        <button class="px-4 py-2 border border-gray-400 rounded">BUTTON</button>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-lg w-[350px] flex-shrink-0">
+                        <img alt="Placeholder image with a mountain icon"
+                            class="w-full h-48 object-cover rounded-lg mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/ObEXJ1pDtaIDqmQfDOSBl2GHffuHOdv1HGLnQI31YeE.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-semibold mb-2">Item 5</h2>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                            euismod bibendum laoreet. Proin.</p>
+                        <button class="px-4 py-2 border border-gray-400 rounded">BUTTON</button>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-lg w-[350px] flex-shrink-0">
+                        <img alt="A digital illustration of a futuristic interface on a screen"
+                            class="w-full h-48 object-cover rounded-lg mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/PDxPrYc8MiF8I43FlTggiTZ_f7aqV0w6CvRRoUAH6r8.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-semibold mb-2">Item 6</h2>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                            euismod bibendum laoreet. Proin.</p>
+                        <button class="px-4 py-2 border border-gray-400 rounded">BUTTON</button>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-lg w-[350px] flex-shrink-0">
+                        <img alt="Placeholder image with a mountain icon"
+                            class="w-full h-48 object-cover rounded-lg mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/ObEXJ1pDtaIDqmQfDOSBl2GHffuHOdv1HGLnQI31YeE.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-semibold mb-2">Item 7</h2>
+                        <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                            euismod bibendum laoreet. Proin.</p>
+                        <button class="px-4 py-2 border border-gray-400 rounded">BUTTON</button>
+                    </div>
+                </div>
+                <!-- <button class="absolute right-0 text-2xl" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button> -->
+            </div>
+            <div class="flex justify-center mt-4" id="indicatorContainer">
+                <span class="h-2 w-2 bg-gray-400 rounded-full mx-1"></span>
+                <span class="h-2 w-2 bg-gray-400 rounded-full mx-1"></span>
+                <span class="h-2 w-2 bg-gray-400 rounded-full mx-1"></span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white py-4">
+        <div class="container mx-auto flex flex-col">
+            <div class="flex items-center">
+                <img alt="Npontu Learning Hub logo" class="mb-2" src="./images/sign_in___sign_up/logo_u45.svg" />
+                <p class="text-center mb-4 ml-12 pt-4">Brief overview of courses</p>
+            </div>
+            <div class="flex justify-between mt-4">
+                <div class="flex space-x-4 mb-4">
+                    <p class="text-center text-gray-600">© 2025 Npontu</p>
+                    <a class="text-gray-600" href="#">About Us</a>
+                    <a class="text-gray-600" href="#">Terms of Service</a>
+                    <a class="text-gray-600" href="#">Privacy Policy</a>
+                    <a class="text-gray-600" href="#">Contact Us</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a class="text-gray-600 text-3xl" href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a class="text-gray-600 text-3xl" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="text-gray-600 text-3xl" href="#"><i class="fab fa-facebook"></i></a>
+                    <a class="text-gray-600 text-3xl" href="#"><i class="fab fa-github"></i></a>
+                    <a class="text-gray-600 text-3xl" href="#"><i class="fab fa-linkedin"></i></a>
+                    <a class="text-gray-600 text-3xl" href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const slider = document.getElementById('testimonialSlider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('#indicatorContainer span');
+        const testimonialWidth = 320; 
+        const gap = 32; 
+        let currentIndex = 0;
+
+        function updateSlider() {
+            const offset = -currentIndex * (testimonialWidth + gap);
+            slider.style.transform = `translateX(${offset}px)`;
+
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('bg-gray-600', index === currentIndex);
+                indicator.classList.toggle('bg-gray-400', index !== currentIndex);
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = indicators.length - 1;
+            }
+            updateSlider();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < indicators.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateSlider();
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+
+        updateSlider();
+    </script>
+</body>
+
+</html>
