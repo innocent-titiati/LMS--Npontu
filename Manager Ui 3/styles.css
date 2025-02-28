@@ -1,0 +1,93 @@
+/* General body styling */
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #333333;
+    height: 100vh;
+    padding: 20px;
+    color: #ffffff;
+    border-right: 1px solid #444;
+}
+
+/* Card styling */
+.card {
+    background-color: #262626;
+    color: #ffffff;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styling */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333333;
+    color: #ffffff;
+    border-top: 1px solid #444;
+}
+
+/* Button styling */
+.btn {
+    background-color: #4CAF50;
+    color: #ffffff;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background-color: #45a049;
+}
+
+/* Navigation link styling */
+.nav-link {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.nav-link:hover {
+    color: #4CAF50;
+}
+
+/* Pagination styling */
+.pagination .page-link {
+    background-color: #262626;
+    color: #ffffff;
+    border: none;
+}
+
+.pagination .page-link:hover {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+
+/* Table row styling */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #2a2a2a;
+}
+
+/* Progress bar styling */
+.progress-bar {
+    background-color: #4CAF50;
+}
+
+/* Header styling */
+h1, h2 {
+    color: #4CAF50;
+}
+
+/* Primary background color */
+.bg-primary {
+    background-color: #007bff !important;
+}
+
+/* Card text and table text styling */
+.card-text, .table th, .table td {
+    color: #ffffff;
+} 

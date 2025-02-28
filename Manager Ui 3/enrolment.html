@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrolment</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="d-flex">
+        <div id="navbar" class="sidebar">
+            <img src="logo_u45.svg" alt="Npontu Learning Hub Logo" width="216" height="70">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="managecourses.html">Manage Courses</a></li>
+                <li class="nav-item"><a class="nav-link" href="enrolment.html">Enrolment</a></li>
+                <li class="nav-item"><a class="nav-link" href="usermanagement.html">User Management</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback & Surveys</a></li>
+                <li class="nav-item"><a class="nav-link" href="report.html">Report & Analytics</a></li>
+            </ul>
+        </div>
+        <div class="container-fluid mt-4">
+            <h1 class="text-center">ENROLLMENT</h1>
+            <div class="row mt-3">
+                <div class="col-md-2.5">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">ONGOING COURSES</h5>
+                            <p class="card-text">50</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2.5">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">TOTAL USERS</h5>
+                            <p class="card-text" id="totalUsers">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2.5">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">ACTIVE USERS</h5>
+                            <p class="card-text">1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2.5">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">COURSES COMPLETED</h5>
+                            <p class="card-text">21</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2.5">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">CERTIFICATES EARNED</h5>
+                            <p class="card-text">26</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h2 class="bg-primary text-white p-2">User Table</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Course Name</th>
+                            <th>Start Date</th>
+                            <th>Progress</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <!-- User rows will be added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Npontu Learning Hub © 2024</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example data, replace with database call
+            const users = [
+                { userName: 'Akwasi Owusu-Duah', courseName: 'AI & Big Data', startDate: '2023-01-15', progress: '50%', suspended: false },
+                { userName: 'Sudo AOD', courseName: 'Platform Development', startDate: '2023-02-01', progress: '75%', suspended: false }
+            ];
+
+            const userTableBody = document.getElementById('userTableBody');
+            const totalUsersElement = document.getElementById('totalUsers');
+
+            users.forEach((user, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user.userName}</td>
+                    <td>${user.courseName}</td>
+                    <td>${user.startDate}</td>
+                    <td>${user.progress}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm suspend-btn">${user.suspended ? 'Unsuspend' : 'Suspend'}</button>
+                        <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+                    </td>
+                `;
+                userTableBody.appendChild(row);
+
+                const suspendBtn = row.querySelector('.suspend-btn');
+                const deleteBtn = row.querySelector('.delete-btn');
+
+                suspendBtn.addEventListener('click', function() {
+                    user.suspended = !user.suspended;
+                    suspendBtn.textContent = user.suspended ? 'Unsuspend' : 'Suspend';
+                    alert(`${user.userName} has been ${user.suspended ? 'suspended' : 'unsuspended'}.`);
+                });
+
+                deleteBtn.addEventListener('click', function() {
+                    if (confirm(`Are you sure you want to delete ${user.userName}?`)) {
+                        users.splice(index, 1);
+                        userTableBody.removeChild(row);
+                        updateTotalUsers();
+                        alert(`${user.userName} has been deleted.`);
+                    }
+                });
+            });
+
+            function updateTotalUsers() {
+                totalUsersElement.textContent = users.length;
+            }
+
+            updateTotalUsers();
+        });
+    </script>
+</body>
+</html> 
