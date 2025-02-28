@@ -1,0 +1,424 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   User Management
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-blue-50">
+  <div class="container mx-auto p-4">
+   <h1 class="text-2xl font-bold text-blue-600 mb-4">
+    USER MANAGEMENT
+   </h1>
+   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+    <div class="bg-white p-4 rounded shadow">
+     <p class="text-gray-500">
+      ONGOING COURSES
+     </p>
+     <p class="text-2xl font-bold">
+      50
+     </p>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+     <p class="text-gray-500">
+      TOTAL USERS
+     </p>
+     <p class="text-2xl font-bold">
+      100
+     </p>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+     <p class="text-gray-500">
+      TOTAL COURSES
+     </p>
+     <p class="text-2xl font-bold">
+      45,021
+     </p>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+     <p class="text-gray-500">
+      CERTIFICATES EARNED
+     </p>
+     <p class="text-2xl font-bold">
+      20,516
+     </p>
+    </div>
+   </div>
+   <div class="bg-blue-500 text-white p-4 rounded-t flex justify-between items-center">
+    <h2 class="text-lg font-bold">
+     User table
+    </h2>
+    <div class="relative">
+     <input class="px-4 py-2 rounded-full text-gray-700 focus:outline-none" placeholder="Search users..." type="text"/>
+     <i class="fas fa-search absolute right-3 top-3 text-gray-500">
+     </i>
+    </div>
+   </div>
+   <div class="bg-white rounded-b shadow overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+     <thead class="bg-gray-50">
+      <tr>
+       <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Users
+       </th>
+       <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Name
+       </th>
+       <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Job
+       </th>
+       <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Git
+       </th>
+       <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Progress
+       </th>
+       <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Started
+       </th>
+       <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        Actions
+       </th>
+      </tr>
+     </thead>
+     <tbody class="bg-white divide-y divide-gray-200">
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Rebecca Bauch" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/olLpb9ooaKxcAj_OWt_MTEbjoFe60O2jLxospZADDQQ.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Rebecca Bauch
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Daugherty
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        South Cory
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 80%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Oct 26
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Felicita Yundt" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/b7AuT-Ri5vduC8Zf-CNgDZwUtDmyyMNDpeVolhRiCpc.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Felicita Yundt
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Daniel
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        East Ariel
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 60%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        2021
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Mr. Larry Satterfield" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/bIjiereKC64A1VmlXw6nHws1HOR8acKngT07hWm9ctE.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Mr. Larry Satterfield
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Johns-Weimann
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Windlerburgh
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 40%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        2021
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Mr. Bradenick Kub" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/f_W4Mi0drWmALVLqgGn13PVraGbvTb08BQ-7di03h7Q.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Mr. Bradenick Kub
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Eichler, Bauch and Esser
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        New Kirstenport
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 50%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Apr 18
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Barry Weber" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/TlyIBDxbwuA58-pkAhIcl9n-vbmjXyDg28ake22P0Xg.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Barry Weber
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Schulist, Mosciski and Heidenreich
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        East Violetstad
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 70%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Jul 4
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Bert Kautzer MD" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/wBAhoCZJs9E7WHrF5RHG6TZF5w4dWQpGERN-ICAD8JY.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Bert Kautzer MD
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Grisfeld and Sons
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Mayport
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 30%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Mar 30
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Lonzo Stiedbar" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/qRmHnXs4P2j7T3l6F3yPvkAZSuI7hmHLJ6-8s3GeUkY.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Lonzo Stiedbar
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Skiles Ltd
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Marilouville
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 90%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Feb 10
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Jonathan Hain" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/2eDUFkDtMsl8SzsA1WA3YzsWgrbDpWnbM87fiysNkoM.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Jonathan Hain
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Fraley
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Ellinmouth
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 50%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        2021
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Ryley Wuckert" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/Pg79oJuUxfY12QrFt3MFBvJaj2cvwDecZoXyvQcXOOI.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Ryley Wuckert
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Heller-Little
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Bremertown
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 60%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        2021
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+      <tr>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <img alt="User avatar of Sienna Hayes" class="rounded-full" height="32" src="https://storage.googleapis.com/a1aa/image/3ndo87G28T5glYZ4hiegZIYO4svGnpGE3qxYxZUM5sg.jpg" width="32"/>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Sienna Hayes
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Corn, Jerde and Douglas
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Jonathanton
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+         <div class="bg-green-500 h-2.5 rounded-full" style="width: 40%">
+         </div>
+        </div>
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        Mar 7
+       </td>
+       <td class="px-6 py-4 whitespace-nowrap">
+        <button class="text-blue-500 hover:text-blue-700">
+         <i class="fas fa-edit">
+         </i>
+        </button>
+        <button class="text-red-500 hover:text-red-700 ml-2">
+         <i class="fas fa-trash">
+         </i>
+        </button>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+ </body>
+</html>

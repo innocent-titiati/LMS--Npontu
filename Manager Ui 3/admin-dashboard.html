@@ -1,0 +1,318 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Administrator Dashboard
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        .graph-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .graph-container div:nth-of-type(1) {
+            grid-column: 1/4;
+        }
+
+        .graph-container div:nth-of-type(4) {
+            grid-column: 2/5;
+        }
+    </style>
+</head>
+
+<body class="bg-blue-50">
+    <div class="container mx-auto p-4 pt-0">
+        <header class="flex justify-between items-center shadow-md p-4 mb-[5rem] bg-white">
+            <h1 class="text-2xl font-bold text-blue-900">
+                ADMINISTRATOR DASHBOARD
+            </h1>
+            <div class="flex">
+                <span class="brightness bg-blue-200 w-[3rem] h-[1.7rem] rounded-[1rem] flex items-center px-[0.5rem]"><i
+                        class="fas fa-moon text-blue-500"></i></span>
+                <span class="bg-blue-200 w-[2rem] h-[2rem] rounded-full mx-[0.5rem] flex items-center pl-[0.5rem]"><i
+                        class="fas fa-bell text-blue-500"></i></span>
+                <span class="bg-blue-200 w-[2rem] h-[2rem] rounded-full mx-[0.5rem] flex items-center pl-[0.5rem]"><i
+                        class="fas fa-search text-blue-500"></i></span>
+                <span class="bg-blue-200 w-[2rem] h-[2rem] rounded-full mx-[0.5rem] flex items-center pl-[0.5rem]"><i
+                        class="fas fa-cog text-blue-500"></i></span>
+            </div>
+        </header>
+        <div class="flex flex-col md:flex-row items-center justify-between mb-4">
+            <div class="bg-white p-4 w-[15rem] rounded shadow">
+                <h2 class="text-gray-500 text-[13px] tracking-wider">ONGOING COURSES</h2>
+                <p class="text-2xl font-bold text-gray-900">50</p>
+            </div>
+            <div class="bg-white p-4 w-[15rem] rounded shadow">
+                <h2 class="text-gray-500 text-[13px] tracking-wider">TOTAL USERS</h2>
+                <p class="text-2xl font-bold text-gray-900">100</p>
+            </div>
+            <div class="bg-white p-4 w-[15rem] rounded shadow">
+                <h2 class="text-gray-500 text-[13px] tracking-wider">TOTAL COURSES</h2>
+                <p class="text-2xl font-bold text-gray-900">45,021</p>
+            </div>
+            <div class="bg-white p-4 w-[15rem] rounded shadow">
+                <h2 class="text-gray-500 text-[13px] tracking-wide">CERTIFICATES EARNED</h2>
+                <p class="text-2xl font-bold text-gray-900">20,516</p>
+            </div>
+        </div>
+
+        <div class="graph-container mt-[5rem] md:grid-cols-2 gap-4 mb-2">
+            <div class="bg-white h-[22rem] p-4 rounded shadow">
+                <h2 class="text-blue-900">Bar Chart</h2>
+                <canvas id="barChart" height="300" class="w-full h-full"></canvas>
+            </div>
+            <div class="bg-white p-4 rounded shadow h-[22rem] ">
+                <h2 class="text-blue-900">Courses Chart</h2>
+                <canvas id="pieChart" height="150"></canvas>
+            </div>
+            <div class="bg-white h-[22rem] p-4 rounded shadow">
+                <h2 class="text-blue-900">Active users right now</h2>
+                <p class="text-2xl font-bold text-blue-900">50 Users</p>
+                <canvas id="activeUsersChart" height="250" class="w-full h-full"></canvas>
+            </div>
+            <div class="bg-white h-[22rem] p-4 rounded shadow">
+                <h2 class="text-blue-900">Recent Activity</h2>
+                <canvas id="lineChart" height="300" class="w-full h-full"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const brightnessToggle = document.querySelector('.brightness');
+        const icon = brightnessToggle.querySelector('i');
+        function toggleBrightness() {
+            // Check if the body has the dark class
+            if (document.body.classList.contains('dark')) {
+                // Remove dark class and set light theme
+                document.body.classList.remove('dark');
+                document.body.classList.remove('bg-gray-800');
+                document.body.classList.add('bg-blue-50');
+                document.body.classList.add('text-black');
+                localStorage.setItem('color-theme', 'light');
+                // Change icon to sun
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                brightnessToggle.classList.remove('bg-blue-200');
+                brightnessToggle.classList.add('bg-yellow-200');
+            } else {
+                // Add dark class and set dark theme
+                document.body.classList.add('dark');
+                document.body.classList.add('bg-gray-800');
+                document.body.classList.remove('bg-blue-50');
+                document.body.classList.remove('text-black');
+                localStorage.setItem('color-theme', 'dark');
+                // Change icon to moon
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                brightnessToggle.classList.remove('bg-yellow-200');
+                brightnessToggle.classList.add('bg-blue-200');
+            }
+        }
+        brightnessToggle.addEventListener('click', toggleBrightness);
+
+        if (localStorage.getItem('color-theme') === 'dark') {
+            document.body.classList.add('dark');
+            document.body.classList.add('bg-gray-800');
+            document.body.classList.remove('bg-blue-50');
+            document.body.classList.remove('text-black');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            brightnessToggle.classList.remove('bg-blue-200');
+            brightnessToggle.classList.add('bg-yellow-200');
+        }
+
+        // Function to generate random numbers
+        function generateRandomNumbers(min, max, count) {
+            const numbers = [];
+            for (let i = 0; i < count; i++) {
+                numbers.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            }
+            return numbers;
+        }
+
+        // Data for the Bar Chart
+        const barChartData = {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [{
+                label: "Total Users",
+                data: generateRandomNumbers(50, 500, 12),
+                backgroundColor: "rgba(0, 123, 255, 0.5)",
+                borderColor: "rgba(0, 123, 255, 1)",
+                borderWidth: 0,
+            }]
+        };
+
+        // Options for the Bar Chart
+        const barChartOptions = {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        };
+
+        // Create the Bar Chart
+        const barChartCtx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(barChartCtx, {
+            type: 'bar',
+            data: barChartData,
+            options: barChartOptions,
+        });
+
+        // Data for the Doughnut Chart
+        const pieChartData = {
+            labels: ["Course A", "Course B", "Course C", "Course D"],
+            datasets: [{
+                label: "Course Distribution",
+                data: generateRandomNumbers(10, 100, 4),
+                backgroundColor: [
+                    "rgba(0, 123, 255, 0.6)",
+                    "rgba(0, 102, 204, 0.6)",
+                    "rgba(0, 153, 255, 0.6)",
+                    "rgba(0, 76, 153, 0.6)"
+                ],
+                borderColor: [
+                    "rgba(0, 123, 255, 0)",
+                    "rgba(0, 102, 204, 0)",
+                    "rgba(0, 153, 255, 0)",
+                    "rgba(0, 76, 153, 0)"
+                ],
+                borderWidth: 0,
+            }]
+        };
+
+        // Options for the Doughnut Chart
+        const pieChartOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            }
+        };
+
+        // Create the Doughnut Chart
+        const pieChartCtx = document.getElementById('pieChart').getContext('2d');
+        const pieChart = new Chart(pieChartCtx, {
+            type: 'doughnut',
+            data: pieChartData,
+            options: pieChartOptions,
+        });
+
+        // Data for the Active Users Bar Chart
+        const activeUsersChartData = {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [{
+                label: "Total Users",
+                data: generateRandomNumbers(50, 500, 12),
+                backgroundColor: "rgba(0, 123, 255, 0.5)",
+                borderColor: "rgba(0, 123, 255, 1)",
+                borderWidth: 0,
+            }]
+        };
+        // Options for the Active Users Bar Chart
+        const activeUsersChartOptions = {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        };
+
+        // Create the Active Users Bar Chart
+        const activeUsersChartCtx = document.getElementById('activeUsersChart').getContext('2d');
+        const activeUsersChart = new Chart(activeUsersChartCtx, {
+            type: 'bar',
+            data: activeUsersChartData,
+            options: activeUsersChartOptions,
+        });
+
+        // Data for the Line Chart
+        const lineChartData = {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [
+                {
+                    label: "Advertising Costs",
+                    data: generateRandomNumbers(100, 1000, 12),
+                    fill: false,
+                    backgroundColor: "rgba(0, 153, 255, 1)",
+                    borderColor: "rgba(0, 153, 255, 1)",
+                    tension: 0.5,
+                    borderWidth: 2,
+                },
+            ],
+        };
+
+        // Options for the Line Chart
+        const lineChartOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                },
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        autoSkip: false,
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+                x: {
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0,
+                    },
+                    grid: {
+                        display: false
+                    }
+                },
+            },
+        };
+
+        // Create the Line Chart
+        const lineChartCtx = document.getElementById('lineChart').getContext('2d');
+        const lineChart = new Chart(lineChartCtx, {
+            type: 'line',
+            data: lineChartData,
+            options: lineChartOptions,
+        });
+    </script>
+</body>
+
+</html>
