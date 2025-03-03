@@ -1,79 +1,87 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enrolment</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet />
+    <style>
+        /* Brightness toggle styles */
+        .dark-mode {
+            background-color: #1a202c; /* Dark background */
+            color: #f7fafc; /* Light text color */
+        }
+    </style>
 </head>
-<body>
-    <div class="d-flex">
-        <div id="navbar" class="sidebar">
-            <img src="logo_u45.svg" alt="Npontu Learning Hub Logo" width="216" height="70">
-            <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="managecourses.html">Manage Courses</a></li>
-                <li class="nav-item"><a class="nav-link" href="enrolment.html">Enrolment</a></li>
-                <li class="nav-item"><a class="nav-link" href="usermanagement.html">User Management</a></li>
-                <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback & Surveys</a></li>
-                <li class="nav-item"><a class="nav-link" href="report.html">Report & Analytics</a></li>
+
+<body class="bg-blue-50 relative">
+    <div class="flex">
+        <div class="w-64 bg-white shadow-md fixed h-screen">
+            <img alt="Npontu Learning Hub Logo" class="w-full h-20 object-contain" height="70"
+                src="./images/sign_in___sign_up/logo_u45.svg" width="216" />
+            <ul class="mt-16">
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./admin-dashboard.html">Dashboard</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./managecourses.html">Manage Courses</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./enrolment.html">Enrollment</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./users.html">User  Management</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./feedback.html">Feedback & Surveys</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./report.html">Report & Analytics</a>
+                </li>
             </ul>
         </div>
-        <div class="container-fluid mt-4">
-            <h1 class="text-center">ENROLLMENT</h1>
-            <div class="row mt-3">
-                <div class="col-md-2.5">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">ONGOING COURSES</h5>
-                            <p class="card-text">50</p>
-                        </div>
-                    </div>
+        <div class="flex justify-between items-center w-[76%] shadow-md p-4 mb-[5rem] bg-white absolute left-[17.5rem] top-[2rem]">
+            <h1 class="text-2xl font-bold text-blue-900">ENROLMENT</h1>
+            <div class="flex">
+                <span id="brightnessToggle" class="cursor-pointer bg-blue-200 w-[3rem] h-[1.7rem] rounded-[1rem] flex items-center px-[0.5rem]">
+                    <i class="fas fa-sun text-blue-500"></i>
+                </span>
+            </div>
+        </div>
+        <div class="flex-1 p-6 absolute w-[79.5%] translate-x-[16rem] translate-y-[8rem]">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4">
+                <div class="bg-white p-4 rounded shadow text-center">
+                    <h5 class="font-semibold">ONGOING COURSES</h5>
+                    <p class="text-2xl">50</p>
                 </div>
-                <div class="col-md-2.5">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">TOTAL USERS</h5>
-                            <p class="card-text" id="totalUsers">0</p>
-                        </div>
-                    </div>
+                <div class="bg-white p-4 rounded shadow text-center">
+                    <h5 class="font-semibold">TOTAL USERS</h5>
+                    <p class="text-2xl" id="totalUsers">0</p>
                 </div>
-                <div class="col-md-2.5">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">ACTIVE USERS</h5>
-                            <p class="card-text">1</p>
-                        </div>
-                    </div>
+                <div class="bg-white p-4 rounded shadow text-center">
+                    <h5 class="font-semibold">ACTIVE USERS</h5>
+                    <p class="text-2xl">1</p>
                 </div>
-                <div class="col-md-2.5">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">COURSES COMPLETED</h5>
-                            <p class="card-text">21</p>
-                        </div>
-                    </div>
+                <div class="bg-white p-4 rounded shadow text-center">
+                    <h5 class="font-semibold">COURSES COMPLETED</h5>
+                    <p class="text-2xl">21</p>
                 </div>
-                <div class="col-md-2.5">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">CERTIFICATES EARNED</h5>
-                            <p class="card-text">26</p>
-                        </div>
-                    </div>
+                <div class="bg-white p-4 rounded shadow text-center">
+                    <h5 class="font-semibold">CERTIFICATES EARNED</h5>
+                    <p class="text-2xl">26</p>
                 </div>
             </div>
             <div class="mt-4">
-                <h2 class="bg-primary text-white p-2">User Table</h2>
-                <table class="table table-striped">
+                <h2 class="bg-blue-500 text-white p-2 rounded">User  Table</h2>
+                <table class="min-w-full bg-white">
                     <thead>
                         <tr>
-                            <th>User Name</th>
-                            <th>Course Name</th>
-                            <th>Start Date</th>
-                            <th>Progress</th>
-                            <th>Actions</th>
+                            <th class="py-2 px-4 border-b">User  Name</th>
+                            <th class="py-2 px-4 border-b">Course Name</th>
+                            <th class="py-2 px-4 border-b">Start Date</th>
+                            <th class="py-2 px-4 border-b">Progress</th>
+                            <th class="py-2 px-4 border-b">Actions</th>
                         </tr>
                     </thead>
                     <tbody id="userTableBody">
@@ -83,14 +91,14 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
+    <footer class="bg-white text-center py-4 mt-6 shadow absolute bottom-0 w-[81.2%] translate-x-[16rem]">
         <p>Npontu Learning Hub © 2024</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Example data, replace with database call
             const users = [
                 { userName: 'Akwasi Owusu-Duah', courseName: 'AI & Big Data', startDate: '2023-01-15', progress: '50%', suspended: false },
@@ -103,13 +111,13 @@
             users.forEach((user, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${user.userName}</td>
-                    <td>${user.courseName}</td>
-                    <td>${user.startDate}</td>
-                    <td>${user.progress}</td>
-                    <td>
-                        <button class="btn btn-warning btn-sm suspend-btn">${user.suspended ? 'Unsuspend' : 'Suspend'}</button>
-                        <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+                    <td class="py-2 px-4 border-b">${user.userName}</td>
+                    <td class="py-2 px-4 border-b">${user.courseName}</td>
+                    <td class="py-2 px-4 border-b">${user.startDate}</td>
+                    <td class="py-2 px-4 border-b">${user.progress}</td>
+                    <td class="py-2 px-4 border-b">
+                        <button class="bg-yellow-500 text-white px-2 py-1 rounded suspend-btn">${user.suspended ? 'Unsuspend' : 'Suspend'}</button>
+                        <button class="bg-red-500 text-white px-2 py-1 rounded delete-btn">Delete</button>
                     </td>
                 `;
                 userTableBody.appendChild(row);
@@ -117,13 +125,13 @@
                 const suspendBtn = row.querySelector('.suspend-btn');
                 const deleteBtn = row.querySelector('.delete-btn');
 
-                suspendBtn.addEventListener('click', function() {
+                suspendBtn.addEventListener('click', function () {
                     user.suspended = !user.suspended;
                     suspendBtn.textContent = user.suspended ? 'Unsuspend' : 'Suspend';
                     alert(`${user.userName} has been ${user.suspended ? 'suspended' : 'unsuspended'}.`);
                 });
 
-                deleteBtn.addEventListener('click', function() {
+                deleteBtn.addEventListener('click', function () {
                     if (confirm(`Are you sure you want to delete ${user.userName}?`)) {
                         users.splice(index, 1);
                         userTableBody.removeChild(row);
@@ -138,7 +146,22 @@
             }
 
             updateTotalUsers();
+
+            // Brightness toggle functionality
+            const brightnessToggle = document.getElementById('brightnessToggle');
+            brightnessToggle.addEventListener('click', function () {
+                document.body.classList.toggle('dark-mode');
+                const icon = brightnessToggle.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                } else {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            });
         });
     </script>
 </body>
-</html> 
+
+</html>

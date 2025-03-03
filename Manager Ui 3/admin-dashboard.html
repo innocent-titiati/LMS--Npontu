@@ -1,88 +1,85 @@
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>
-        Administrator Dashboard
-    </title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Administrator Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <style>
-        .graph-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .graph-container div:nth-of-type(1) {
-            grid-column: 1/4;
-        }
-
-        .graph-container div:nth-of-type(4) {
-            grid-column: 2/5;
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </head>
-
-<body class="bg-blue-50">
-    <div class="container mx-auto p-4 pt-0">
-        <header class="flex justify-between items-center shadow-md p-4 mb-[5rem] bg-white">
-            <h1 class="text-2xl font-bold text-blue-900">
-                ADMINISTRATOR DASHBOARD
-            </h1>
-            <div class="flex">
-                <span class="brightness bg-blue-200 w-[3rem] h-[1.7rem] rounded-[1rem] flex items-center px-[0.5rem]"><i
-                        class="fas fa-moon text-blue-500"></i></span>
-                <span class="bg-blue-200 w-[2rem] h-[2rem] rounded-full mx-[0.5rem] flex items-center pl-[0.5rem]"><i
-                        class="fas fa-bell text-blue-500"></i></span>
-                <span class="bg-blue-200 w-[2rem] h-[2rem] rounded-full mx-[0.5rem] flex items-center pl-[0.5rem]"><i
-                        class="fas fa-search text-blue-500"></i></span>
-                <span class="bg-blue-200 w-[2rem] h-[2rem] rounded-full mx-[0.5rem] flex items-center pl-[0.5rem]"><i
-                        class="fas fa-cog text-blue-500"></i></span>
-            </div>
-        </header>
-        <div class="flex flex-col md:flex-row items-center justify-between mb-4">
-            <div class="bg-white p-4 w-[15rem] rounded shadow">
-                <h2 class="text-gray-500 text-[13px] tracking-wider">ONGOING COURSES</h2>
-                <p class="text-2xl font-bold text-gray-900">50</p>
-            </div>
-            <div class="bg-white p-4 w-[15rem] rounded shadow">
-                <h2 class="text-gray-500 text-[13px] tracking-wider">TOTAL USERS</h2>
-                <p class="text-2xl font-bold text-gray-900">100</p>
-            </div>
-            <div class="bg-white p-4 w-[15rem] rounded shadow">
-                <h2 class="text-gray-500 text-[13px] tracking-wider">TOTAL COURSES</h2>
-                <p class="text-2xl font-bold text-gray-900">45,021</p>
-            </div>
-            <div class="bg-white p-4 w-[15rem] rounded shadow">
-                <h2 class="text-gray-500 text-[13px] tracking-wide">CERTIFICATES EARNED</h2>
-                <p class="text-2xl font-bold text-gray-900">20,516</p>
-            </div>
+<body class="bg-blue-50 relative">
+    <div class="flex">
+        <div class="w-64 bg-white shadow-md fixed left-0 h-screen">
+            <img alt="Npontu Learning Hub Logo" class="w-full h-20 object-contain" height="70" src="./images/sign_in___sign_up/logo_u45.svg"/>
+            <ul class="mt-16">
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./admin-dashboard.html">Dashboard</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./managecourses.html">Manage Courses</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./enrolment.html">Enrolment</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./users.html">User Management</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./feedback.html">Feedback &amp; Surveys</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./report-and-analysis.html">Report &amp; Analytics</a>
+                </li>
+            </ul>
         </div>
-
-        <div class="graph-container mt-[5rem] md:grid-cols-2 gap-4 mb-2">
-            <div class="bg-white h-[22rem] p-4 rounded shadow">
-                <h2 class="text-blue-900">Bar Chart</h2>
-                <canvas id="barChart" height="300" class="w-full h-full"></canvas>
-            </div>
-            <div class="bg-white p-4 rounded shadow h-[22rem] ">
-                <h2 class="text-blue-900">Courses Chart</h2>
-                <canvas id="pieChart" height="150"></canvas>
-            </div>
-            <div class="bg-white h-[22rem] p-4 rounded shadow">
-                <h2 class="text-blue-900">Active users right now</h2>
-                <p class="text-2xl font-bold text-blue-900">50 Users</p>
-                <canvas id="activeUsersChart" height="250" class="w-full h-full"></canvas>
-            </div>
-            <div class="bg-white h-[22rem] p-4 rounded shadow">
-                <h2 class="text-blue-900">Recent Activity</h2>
-                <canvas id="lineChart" height="300" class="w-full h-full"></canvas>
+        <div class="flex-1 p-6 absolute w-[78%] left-[17rem]">
+            <div class="container mx-auto p-4 pt-0">
+                <header class="flex justify-between items-center shadow-md p-4 mb-[5rem] bg-white">
+                    <h1 class="text-2xl font-bold text-blue-900">ADMINISTRATOR DASHBOARD</h1>
+                    <div class="flex">
+                        <span class="brightness bg-blue-200 w-[3rem] h-[1.7rem] rounded-[1rem] flex items-center px-[0.5rem]"><i class="fas fa-moon text-blue-500"></i></span>
+                    </div>
+                </header>
+                <div class="flex flex-col md:flex-row items-center justify-between mb-4">
+                    <div class="bg-white p-4 w-[15rem] rounded shadow">
+                        <h2 class="text-gray-500 text-[13px] tracking-wider">ONGOING COURSES</h2>
+                        <p class="text-2xl font-bold text-gray-900">50</p>
+                    </div>
+                    <div class="bg-white p-4 w-[15rem] rounded shadow">
+                        <h2 class="text-gray-500 text-[13px] tracking-wider">TOTAL USERS</h2>
+                        <p class="text-2xl font-bold text-gray-900">100</p>
+                    </div>
+                    <div class="bg-white p-4 w-[15rem] rounded shadow">
+                        <h2 class="text-gray-500 text-[13px] tracking-wider">TOTAL COURSES</h2>
+                        <p class="text-2xl font-bold text-gray-900">45,021</p>
+                    </div>
+                    <div class="bg-white p-4 w-[15rem] rounded shadow">
+                        <h2 class="text-gray-500 text-[13px] tracking-wide">CERTIFICATES EARNED</h2>
+                        <p class="text-2xl font-bold text-gray-900">20,516</p>
+                    </div>
+                </div>
+                <div class="graph-container mt-[5rem] md:grid-cols-2 gap-4 mb-2">
+                    <div class="bg-white h-[22rem] p-4 rounded shadow">
+                        <h2 class="text-blue-900">Bar Chart</h2>
+                        <canvas id="barChart" height="300" class="w-full h-full"></canvas>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow h-[22rem]">
+                        <h2 class="text-blue-900">Courses Chart</h2>
+                        <canvas id="pieChart" height="150"></canvas>
+                    </div>
+                    <div class="bg-white h-[22rem] p-4 rounded shadow">
+                        <h2 class="text-blue-900">Active users right now</h2>
+                        <p class="text-2xl font-bold text-blue-900">50 Users</p>
+                        <canvas id="activeUsersChart" height="250" class="w-full h-full"></canvas>
+                    </div>
+                    <div class="bg-white h-[22rem] p-4 rounded shadow">
+                        <h2 class="text-blue-900">Recent Activity</h2>
+                        <canvas id="lineChart" height="300" class="w-full h-full"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
     <script>
         const brightnessToggle = document.querySelector('.brightness');
         const icon = brightnessToggle.querySelector('i');
@@ -314,5 +311,4 @@
         });
     </script>
 </body>
-
 </html>

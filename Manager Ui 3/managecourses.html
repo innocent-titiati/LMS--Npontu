@@ -1,48 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Management</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="styles.css" rel="stylesheet">
 </head>
-<body>
-    <div class="d-flex">
-        <div class="sidebar">
-            <img src="./images/sign_in___sign_up/logo_u45.svg" alt="Npontu Learning Hub Logo" width="216" height="70">
-            <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link" href="./admin-dashboard.html">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="./managecourses.html">Manage Courses</a></li>
-                <li class="nav-item"><a class="nav-link" href="./enrolment.html">Enrolment</a></li>
-                <li class="nav-item"><a class="nav-link" href="./users.html">User Management</a></li>
-                <li class="nav-item"><a class="nav-link" href="./feedback.html">Feedback & Surveys</a></li>
-                <li class="nav-item"><a class="nav-link" href="./report-and-analysis.html">Report & Analytics</a></li>
+
+<body class="bg-blue-50">
+    <div class="d-flex bg-blue-50 h-[100vh] relative">
+        <div class="w-64 bg-white shadow-md fixed left-0 h-screen">
+            <img alt="Npontu Learning Hub Logo" class="w-full h-20 object-contain" height="70" src="./images/sign_in___sign_up/logo_u45.svg"/>
+            <ul class="mt-16 text-black">
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./admin-dashboard.html">Dashboard</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./managecourses.html">Manage Courses</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./enrolment.html">Enrolment</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./users.html">User  Management</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./feedback.html">Feedback &amp; Surveys</a>
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200">
+                    <a class="block" href="./report-and-analysis.html">Report &amp; Analytics</a>
+                </li>
             </ul>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid absolute top-[2rem] left-[19rem] w-[75%]">
+            <header class="flex justify-between items-center shadow-md p-4 mb-[5rem] bg-white">
+                <h1 class="text-2xl font-bold text-blue-900">COURSE MANAGEMENT</h1>
+                <div class="flex">
+                    <span class="brightness bg-blue-200 w-[3rem] h-[1.7rem] rounded-[1rem] flex items-center px-[0.5rem]">
+                        <i class="fas fa-moon text-blue-500"></i>
+                    </span>
+                </div>
+            </header>
             <div class="row mt-3">
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Courses</h5>
-                            <p class="card-text" id="overallCourses">0</p>
+                        <div class="card-body bg-gray-100">
+                            <h5 class="card-title font-bold text-gray-900">Courses</h5>
+                            <p class="card-text text-gray-900" id="overallCourses">0</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Completed</h5>
-                            <p class="card-text">0</p>
+                        <div class="card-body bg-gray-100">
+                            <h5 class="card-title font-bold text-gray-900">Completed</h5>
+                            <p class="card-text text-gray-900">0</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Performance</h5>
-                            <p class="card-text">0%</p>
+                        <div class="card-body bg-gray-100">
+                            <h5 class="card-title font-bold text-gray-900">Performance</h5>
+                            <p class="card-text text-gray-900">0%</p>
                         </div>
                     </div>
                 </div>
@@ -98,14 +122,10 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <p>Npontu Learning Hub © 2024</p>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
-    <!-- Add this modal structure inside the body tag -->
     <div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -175,71 +195,71 @@
         </div>
     </div>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const overallCoursesElement = document.getElementById('overallCourses');
-        const totalCoursesElement = document.getElementById('totalCourses');
+        document.addEventListener('DOMContentLoaded', function () {
+            const overallCoursesElement = document.getElementById('overallCourses');
+            const totalCoursesElement = document.getElementById('totalCourses');
 
-        // Set the total courses text to match the overall courses count initially
-        totalCoursesElement.textContent = `Total courses: ${overallCoursesElement.textContent}`;
-    });
+            // Set the total courses text to match the overall courses count initially
+            totalCoursesElement.textContent = `Total courses: ${overallCoursesElement.textContent}`;
+        });
 
-    document.getElementById('saveCourseButton').addEventListener('click', function() {
-        // Capture form data
-        const courseName = document.getElementById('courseName').value;
-        const instructorName = document.getElementById('instructorName').value;
-        const courseDate = document.getElementById('courseDate').value;
-        const contentType = document.getElementById('contentTypeModal').value;
-        const category = document.getElementById('categoryModal').value;
-        const courseDescription = document.getElementById('courseDescription').value;
-        const courseLevel = document.getElementById('courseLevel').value;
-        const rating = document.getElementById('rating').value;
-        const courseImage = document.getElementById('courseImage').files[0];
+        document.getElementById('saveCourseButton').addEventListener('click', function () {
+            // Capture form data
+            const courseName = document.getElementById('courseName').value;
+            const instructorName = document.getElementById('instructorName').value;
+            const courseDate = document.getElementById('courseDate').value;
+            const contentType = document.getElementById('contentTypeModal').value;
+            const category = document.getElementById('categoryModal').value;
+            const courseDescription = document.getElementById('courseDescription').value;
+            const courseLevel = document.getElementById('courseLevel').value;
+            const rating = document.getElementById('rating').value;
+            const courseImage = document.getElementById('courseImage').files[0];
 
-        // Create a new course object
-        const newCourse = {
-            name: courseName,
-            supervisor: instructorName,
-            lastUpdated: courseDate,
-            contentType: contentType,
-            category: category,
-            description: courseDescription,
-            level: courseLevel,
-            rating: rating,
-            image: URL.createObjectURL(courseImage) // Create a URL for the image file
-        };
+            // Create a new course object
+            const newCourse = {
+                name: courseName,
+                supervisor: instructorName,
+                lastUpdated: courseDate,
+                contentType: contentType,
+                category: category,
+                description: courseDescription,
+                level: courseLevel,
+                rating: rating,
+                image: URL.createObjectURL(courseImage) // Create a URL for the image file
+            };
 
-        // Add the new course to the courses array
-        courses.push(newCourse);
+            // Add the new course to the courses array
+            courses.push(newCourse);
 
-        // Increment the course count
-        let totalCoursesElement = document.getElementById('totalCourses');
-        let currentCount = parseInt(totalCoursesElement.textContent.match(/\d+/)[0]);
-        totalCoursesElement.textContent = `Total courses: ${currentCount + 1}`;
+            // Increment the course count
+            let totalCoursesElement = document.getElementById('totalCourses');
+            let currentCount = parseInt(totalCoursesElement.textContent.match(/\d+/)[0]);
+            totalCoursesElement.textContent = `Total courses: ${currentCount + 1}`;
 
-        // Display the updated courses
-        displayCourses(currentPage);
-        updatePagination();
+            // Display the updated courses
+            displayCourses(currentPage);
+            updatePagination();
 
-        // Close the modal after saving
-        $('#courseModal').modal('hide');
-    });
+            // Close the modal after saving
+            $('#courseModal').modal('hide');
+        });
 
-    const courses = []; // Array to hold course data
-    const coursesPerPage = 10;
-    let currentPage = 1;
+        const courses = []; // Array to hold course data
+        const coursesPerPage = 10;
+        let currentPage = 1;
 
-    function displayCourses(page) {
-        const start = (page - 1) * coursesPerPage;
-        const end = start + coursesPerPage;
-        const coursesToDisplay = courses.slice(start, end);
+        function displayCourses(page) {
+            const start = (page - 1) * coursesPerPage;
+            const end = start + coursesPerPage;
+            const coursesToDisplay = courses.slice(start, end);
 
-        const courseContainer = document.getElementById('courseContainer');
-        courseContainer.innerHTML = ''; // Clear existing courses
+            const courseContainer = document.getElementById('courseContainer');
+            courseContainer.innerHTML = ''; // Clear existing courses
 
-        coursesToDisplay.forEach(course => {
-            const courseCard = document.createElement('div');
-            courseCard.className = 'col-md-3';
-            courseCard.innerHTML = `
+            coursesToDisplay.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'col-md-3';
+                courseCard.innerHTML = `
                 <div class="card">
                     <img src="${course.image}" class="card-img-top" alt="Course Image">
                     <div class="card-body">
@@ -248,57 +268,104 @@
                         <p class="card-text">Course Description: ${course.description}</p>
                         <p class="card-text">Course Level: ${course.level}</p>
                         <p class="card-text">Last Updated: ${course.lastUpdated}</p>
-                        <p class="card-text">End Date: ${course.endDate}</p>
                         <p class="card-text">Rating: ${course.rating} <span class="fa fa-star checked"></span></p>
                     </div>
                 </div>
             `;
-            courseContainer.appendChild(courseCard);
+                courseContainer.appendChild(courseCard);
+            });
+        }
+
+        function updatePagination() {
+            document.getElementById('prevPage').parentElement.classList.toggle('disabled', currentPage === 1);
+            document.getElementById('nextPage').parentElement.classList.toggle('disabled', currentPage === Math.ceil(courses.length / coursesPerPage));
+        }
+
+        document.getElementById('prevPage').addEventListener('click', function () {
+            if (currentPage > 1) {
+                currentPage--;
+                displayCourses(currentPage);
+                updatePagination();
+            }
         });
-    }
 
-    function updatePagination() {
-        document.getElementById('prevPage').parentElement.classList.toggle('disabled', currentPage === 1);
-        document.getElementById('nextPage').parentElement.classList.toggle('disabled', currentPage === Math.ceil(courses.length / coursesPerPage));
-    }
+        document.getElementById('nextPage').addEventListener('click', function () {
+            if (currentPage < Math.ceil(courses.length / coursesPerPage)) {
+                currentPage++;
+                displayCourses(currentPage);
+                updatePagination();
+            }
+        });
 
-    document.getElementById('prevPage').addEventListener('click', function() {
-        if (currentPage > 1) {
-            currentPage--;
+        document.getElementById('page1').addEventListener('click', function () {
+            currentPage = 1;
             displayCourses(currentPage);
             updatePagination();
-        }
-    });
+        });
 
-    document.getElementById('nextPage').addEventListener('click', function() {
-        if (currentPage < Math.ceil(courses.length / coursesPerPage)) {
-            currentPage++;
+        document.getElementById('page2').addEventListener('click', function () {
+            currentPage = 2;
             displayCourses(currentPage);
             updatePagination();
+        });
+
+        document.getElementById('page3').addEventListener('click', function () {
+            currentPage = 3;
+            displayCourses(currentPage);
+            updatePagination();
+        });
+
+        // Brightness toggle functionality
+        const brightnessToggle = document.querySelector('.brightness');
+        const icon = brightnessToggle.querySelector('i');
+
+        function toggleBrightness() {
+            // Check if the body has the dark class
+            if (document.body.classList.contains('dark')) {
+                // Remove dark class and set light theme
+                document.body.classList.remove('dark');
+                document.body.classList.remove('bg-gray-800');
+                document.body.classList.add('bg-blue-50');
+                document.body.classList.add('text-black');
+                localStorage.setItem('color-theme', 'light');
+                // Change icon to sun
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                brightnessToggle.classList.remove('bg-blue-200');
+                brightnessToggle.classList.add('bg-yellow-200');
+            } else {
+                // Add dark class and set dark theme
+                document.body.classList.add('dark');
+                document.body.classList.add('bg-gray-800');
+                document.body.classList.remove('bg-blue-50');
+                document.body.classList.remove('text-black');
+                localStorage.setItem('color-theme', 'dark');
+                // Change icon to moon
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                brightnessToggle.classList.remove('bg-yellow-200');
+                brightnessToggle.classList.add('bg-blue-200');
+            }
         }
-    });
 
-    document.getElementById('page1').addEventListener('click', function() {
-        currentPage = 1;
+        brightnessToggle.addEventListener('click', toggleBrightness);
+
+        // Check local storage for theme preference
+        if (localStorage.getItem('color-theme') === 'dark') {
+            document.body.classList.add('dark');
+            document.body.classList.add('bg-gray-800');
+            document.body.classList.remove('bg-blue-50');
+            document.body.classList.remove('text-black');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            brightnessToggle.classList.remove('bg-blue-200');
+            brightnessToggle.classList.add('bg-yellow-200');
+        }
+
+        // Initial display
         displayCourses(currentPage);
         updatePagination();
-    });
-
-    document.getElementById('page2').addEventListener('click', function() {
-        currentPage = 2;
-        displayCourses(currentPage);
-        updatePagination();
-    });
-
-    document.getElementById('page3').addEventListener('click', function() {
-        currentPage = 3;
-        displayCourses(currentPage);
-        updatePagination();
-    });
-
-    // Initial display
-    displayCourses(currentPage);
-    updatePagination();
     </script>
 </body>
+
 </html>
