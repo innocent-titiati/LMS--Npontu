@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>
+        Sign Up / Sign In
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function showSignUp() {
+            document.getElementById('sign-up').classList.remove('hidden');
+            document.getElementById('sign-in').classList.add('hidden');
+        }
+
+        function showSignIn() {
+            document.getElementById('sign-up').classList.add('hidden');
+            document.getElementById('sign-in').classList.remove('hidden');
+        }
+
+        window.onload = function() {
+            showSignUp(); // Show sign up by default
+        };
+    </script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md mx-auto">
+        <div class="flex justify-center mb-6">
+            <img alt="Npontu Learning Hub logo" class="h-16" height="100" src="./images//sign_in___sign_up/logo_u45-0.png" width="200"/>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="sign-up" class="bg-white shadow-md rounded-lg p-8">
+            <div class="flex justify-end">
+                <button class="text-gray-500 hover:text-gray-700" onclick="showSignIn()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <h2 class="text-2xl font-semibold text-center mb-4">Sign up</h2>
+            <p class="text-center text-gray-600 mb-4">
+                Already have an account?
+                <a class="text-blue-500 cursor-pointer" onclick="showSignIn()">Sign in</a>
+            </p>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="full-name">Full Name</label>
+                    <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="full-name" type="text"/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="email">Email</label>
+                    <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" type="email"/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="password">Password</label>
+                    <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="password" type="password"/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="confirm-password">Confirm Password</label>
+                    <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="confirm-password" type="password"/>
+                </div>
+                <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" type="submit">
+                    Sign up
+                </button>
+            </form>
+            <p class="text-center text-gray-600 text-sm mt-4">
+                By creating an account, you agree to our
+                <a class="text-blue-500" href="#">Terms of Service</a>
+                and
+                <a class="text-blue-500" href="#">Privacy Policy</a>.
+            </p>
+        </div>
+
+        <!-- Sign In Form -->
+        <div id="sign-in" class="bg-white shadow-md rounded-lg p-8 hidden">
+            <div class="flex justify-end">
+                <button class="text-gray-500 hover:text-gray-700" onclick="showSignUp()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <h2 class="text-center text-2xl font-semibold mb-4">Sign in to continue learning</h2>
+            <div class="text-center mb-4">
+                <span>
+                    Don't have an account?
+                    <a class="text-blue-500 cursor-pointer" onclick="showSignUp()">Sign up</a>
+                </span>
+            </div>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="email-signin">Email</label>
+                    <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="email-signin" required type="email"/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="password-signin">Password</label>
+                    <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="password-signin" required type="password"/>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <label class="flex items-center">
+                        <input class="form-checkbox" type="checkbox"/>
+                        <span class="ml-2 text-gray-700">Remember me</span>
+                    </label>
+                    <a class="text-blue-500" href="#">Forgot password?</a>
+                </div>
+                <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600" type="submit">
+                    Sign in
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
