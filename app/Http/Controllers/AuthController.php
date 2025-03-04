@@ -2,118 +2,79 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use App\Models\User;
-use App\Models\Role;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
-    /**
-     * User Registration
-     */
-    public function register(Request $request)
+    public function showLoginForm()
     {
-        // Validate Request
-        $validator = Validator::make($request->all(), [
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'role' => 'required|in:manager,hr,employee',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
-        }
-
-        // Create User
-        $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => $request->role,
-        ]);
-
-       
-        return redirect()->route('login');
-    
+        return view('auth.login');
     }
 
-    /**
-     * User Login
-     */
     public function login(Request $request)
     {
-        // Validate Request
-        // $validator = Validator::make($request->all(), [
-        //     'email' => 'required|string|email',
-        //     'password' => 'required|string',
-        //     'role' => 'required|in:manager,hr,employee',
-        // ]);
         $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            // 'role' => 'required|in:manager,hr,employee',
+            'email' => 'required|email',
+            'password' => 'required|string'
         ]);
 
-        // if ($validator->fails()) {
-        //     return response()->json(['errors' => $validator->errors()], 422);
-        // }
+        $userExists = User::where('email', $request->email)->exists();
 
-        // Check Credentials
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            return back()->with(['message' => 'Invalid credentials'], 401);
-        }
-        if(Auth::user()->role === 'manager'){
+        if (Auth::attempt($request->only('email', 'password'), true)) {
             return redirect()->route('manager.dashboard');
-        }elseif(Auth::user()->role === 'hr'){
-            return redirect()->route('hr.dashboard');
-        }elseif(Auth::user()->role === 'employee'){
-            return redirect()->route('employee.dashboard');
         }
 
-        // // Get Authenticated User
-        
-        
-        // // Verify that the requested role matches the user's role
-        if ($user->role !== $request->role) {
-            Auth::logout();
-            return response()->json(['message' => 'Inhvalid role for this user'], 401);
+        if (!$userExists) {
+            return redirect()->route('register')->with('message', 'User does not exist. Please register.');
         }
 
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        // Role-based redirect
-        if ($user->role === 'manager') {
-            return redirect()->route('manager.dashboard');
-        } elseif ($user->role === 'hr') {
-            return redirect()->route('hr.dashboard');
-        } elseif ($user->role === 'employee') {
-            return redirect()->route('employee.dashboard');
-        }
-
-        // return response()->json(['message' => 'Login successful', 'token' => $token, 'user' => $user]);
+        return redirect()->back()->with('error', 'Invalid Credentials');
     }
 
-    /**
-     * Get Authenticated User
-     */
-    public function me(Request $request)
+    public function showRegistrationForm()
     {
-        return response()->json(['user' => $request->user()]);
+        // dd('hi');
+        return view('auth.register');
     }
 
-    /**
-     * User Logout
-     */
-    public function logout()
+    public function register(Request $request)
+    {
+        
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'role' => 'required|string'
+        ]);
+
+        $existingUser = User::where('email', $request->email)->first();
+
+        if ($existingUser) {
+            return redirect()->route('login')->with('message', 'You are already registered. Please log in to your account.');
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role
+        ]);
+
+        event(new Registered($user));
+
+        Auth::login($user, true);
+        return redirect()->route('dashboard');
+    }
+
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/login')->with('success', 'Logged out successfully.');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('home');
     }
-
 }

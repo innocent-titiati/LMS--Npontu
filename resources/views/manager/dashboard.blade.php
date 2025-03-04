@@ -23,19 +23,19 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('manager.courses') }}" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                            <a href="" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
                                 <i class="fas fa-book mr-3"></i>
                                 Manage Courses
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('enrollments.index') }}" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                            <a href="" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
                                 <i class="fas fa-users mr-3"></i>
                                 Enrollment
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('users.index') }}" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
+                            <a href="" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded">
                                 <i class="fas fa-user-cog mr-3"></i>
                                 User Management
                             </a>
@@ -73,19 +73,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-gray-500 text-sm mb-2">Total Courses</h3>
-                    <p class="text-3xl font-bold">{{ $stats['totalCourses'] }}</p>
+                    <p class="text-3xl font-bold">{{$courseCount}} {{Str::plural(' course', $courseCount)}} </p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-gray-500 text-sm mb-2">Active Enrollments</h3>
-                    <p class="text-3xl font-bold">{{ $stats['activeEnrollments'] }}</p>
+                    <p class="text-3xl font-bold">{{$activeEnrollment->count()}}{{Str::plural(' enrollment', $activeEnrollment->count())}}</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-gray-500 text-sm mb-2">Total Users</h3>
-                    <p class="text-3xl font-bold">{{ $stats['totalUsers'] }}</p>
+                    <p class="text-3xl font-bold">{{$users->count()}}{{Str::plural(' user', $users->count())}}</</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-gray-500 text-sm mb-2">Completion Rate</h3>
-                    <p class="text-3xl font-bold">{{ $stats['completionRate'] }}%</p>
+                    <p class="text-3xl font-bold">Put statistics completion rate here</p>
                 </div>
             </div>
 
@@ -103,14 +103,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($recentActivities as $activity)
-                            <tr class="border-t">
-                                <td class="p-3">{{ $activity->user->name }}</td>
-                                <td class="p-3">{{ $activity->course->title }}</td>
-                                <td class="p-3">{{ $activity->action }}</td>
-                                <td class="p-3">{{ $activity->created_at->diffForHumans() }}</td>
-                            </tr>
-                            @endforeach
+                            
                         </tbody>
                     </table>
                 </div>
@@ -182,26 +175,7 @@
         });
 
         // Update your stats cards HTML to include data attributes
-        const statsCards = `
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="bg-white p-6 rounded-lg shadow stats-card" data-stat-type="totalCourses">
-                    <h3 class="text-gray-500 text-sm mb-2">Total Courses</h3>
-                    <p class="text-3xl font-bold">{{ $stats['totalCourses'] }}</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow stats-card" data-stat-type="activeEnrollments">
-                    <h3 class="text-gray-500 text-sm mb-2">Active Enrollments</h3>
-                    <p class="text-3xl font-bold">{{ $stats['activeEnrollments'] }}</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow stats-card" data-stat-type="totalUsers">
-                    <h3 class="text-gray-500 text-sm mb-2">Total Users</h3>
-                    <p class="text-3xl font-bold">{{ $stats['totalUsers'] }}</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow stats-card" data-stat-type="completionRate">
-                    <h3 class="text-gray-500 text-sm mb-2">Completion Rate</h3>
-                    <p class="text-3xl font-bold">{{ $stats['completionRate'] }}%</p>
-                </div>
-            </div>
-        `;
+       
     });
     </script>
 </body>

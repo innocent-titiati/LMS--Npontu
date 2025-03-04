@@ -13,7 +13,7 @@ class Enrollment extends Model
         'user_id',
         'course_id',
         'status',
-        'progress'
+        
     ];
 
     // Define the possible status values
