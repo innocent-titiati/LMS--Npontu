@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Course Finder</title>
+</head>
+<body>
+    <!-- Header section with logo and title -->
+    <header>
+        <img src="logo_u45.svg" alt="Logo" class="logo">
+        <h1 class="center">Course Finder</h1>
+    </header>
+
+    <!-- Main container for the course finder application -->
+    <div class="container">
+        <!-- Search and filter options -->
+        <div class="search-filter">
+            <button>Sort</button>
+            <select id="filter">
+                <option value="">Filter by Category</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Technology">Technology</option>
+                <option value="Finance">Finance</option>
+                <option value="Literature">Literature</option>
+            </select>
+            <span id="total-courses">Total courses: 0</span>
+            <input type="text" placeholder="Find your course" id="search">
+        </div>
+
+        <!-- List of courses will be dynamically inserted here -->
+        <div id="course-list" class="course-list">
+            <!-- Courses will be dynamically inserted here -->
+        </div>
+
+        <!-- Pagination controls -->
+        <div class="pagination">
+            <button id="prev" disabled>Previous</button>
+            <button id="next">Next</button>
+        </div>
+    </div>
+
+    <!-- JavaScript file to handle data fetching and pagination -->
+    <script src="script.js"></script>
+</body>
+</html>

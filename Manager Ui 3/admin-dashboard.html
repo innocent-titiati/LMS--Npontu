@@ -1,16 +1,19 @@
 <html lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Administrator Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
+
 <body class="bg-blue-50 relative">
     <div class="flex">
-        <div class="w-64 bg-white shadow-md fixed left-0 h-screen">
-            <img alt="Npontu Learning Hub Logo" class="w-full h-20 object-contain" height="70" src="./images/sign_in___sign_up/logo_u45.svg"/>
+        <div class="sidebar w-64 bg-white shadow-md fixed left-0 h-screen">
+            <img alt="Npontu Learning Hub Logo" class="w-full h-20 object-contain" height="70"
+                src="./images/sign_in___sign_up/logo_u45.svg" />
             <ul class="mt-16">
                 <li class="px-4 py-2 hover:bg-gray-200">
                     <a class="block" href="./admin-dashboard.html">Dashboard</a>
@@ -37,7 +40,9 @@
                 <header class="flex justify-between items-center shadow-md p-4 mb-[5rem] bg-white">
                     <h1 class="text-2xl font-bold text-blue-900">ADMINISTRATOR DASHBOARD</h1>
                     <div class="flex">
-                        <span class="brightness bg-blue-200 w-[3rem] h-[1.7rem] rounded-[1rem] flex items-center px-[0.5rem]"><i class="fas fa-moon text-blue-500"></i></span>
+                        <span
+                            class="brightness bg-blue-200 w-[3rem] h-[1.7rem] rounded-[1rem] flex items-center px-[0.5rem]"><i
+                                class="fas fa-moon text-blue-500"></i></span>
                     </div>
                 </header>
                 <div class="flex flex-col md:flex-row items-center justify-between mb-4">
@@ -83,27 +88,33 @@
     <script>
         const brightnessToggle = document.querySelector('.brightness');
         const icon = brightnessToggle.querySelector('i');
+        const sidebar = document.querySelector('.sidebar');
+
         function toggleBrightness() {
             // Check if the body has the dark class
             if (document.body.classList.contains('dark')) {
                 // Remove dark class and set light theme
-                document.body.classList.remove('dark');
-                document.body.classList.remove('bg-gray-800');
-                document.body.classList.add('bg-blue-50');
-                document.body.classList.add('text-black');
+                document.body.classList.remove('dark', 'bg-gray-800');
+                document.body.classList.add('bg-blue-50', 'text-black');
                 localStorage.setItem('color-theme', 'light');
+
                 // Change icon to sun
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
                 brightnessToggle.classList.remove('bg-blue-200');
                 brightnessToggle.classList.add('bg-yellow-200');
+                localStorage.setItem('icon-image', 'toggle-button-light');
+
+                // For sidebar
+                sidebar.classList.add("bg-blue-500", "text-gray-500");
+                sidebar.classList.remove("bg-white");
+                localStorage.setItem("sidebar-theme", "sidebar-light");
             } else {
                 // Add dark class and set dark theme
-                document.body.classList.add('dark');
-                document.body.classList.add('bg-gray-800');
+                document.body.classList.add('dark', 'bg-gray-800');
                 document.body.classList.remove('bg-blue-50');
-                document.body.classList.remove('text-black');
                 localStorage.setItem('color-theme', 'dark');
+
                 // Change icon to moon
                 icon.classList.remove('fa-sun');
                 icon.classList.add('fa-moon');
@@ -111,17 +122,22 @@
                 brightnessToggle.classList.add('bg-blue-200');
             }
         }
+
+        // Add event listener for the brightness toggle button
         brightnessToggle.addEventListener('click', toggleBrightness);
 
+        // Initialize theme based on localStorage
         if (localStorage.getItem('color-theme') === 'dark') {
-            document.body.classList.add('dark');
-            document.body.classList.add('bg-gray-800');
-            document.body.classList.remove('bg-blue-50');
-            document.body.classList.remove('text-black');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
+            document.body.classList.add('dark', 'bg-gray-800');
+            document.body.classList.remove('bg-blue-50', 'text-black');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
             brightnessToggle.classList.remove('bg-blue-200');
             brightnessToggle.classList.add('bg-yellow-200');
+
+            // Initialize sidebar for dark theme if needed
+            sidebar.classList.add("bg-blue-800", "text-gray-500");
+            sidebar.classList.remove("bg-white");
         }
 
         // Function to generate random numbers
@@ -311,4 +327,5 @@
         });
     </script>
 </body>
+
 </html>
